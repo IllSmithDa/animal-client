@@ -1,4 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react'
+
+
+const local_server = "http://127.0.0.1:8000";
+const publish_server = "https://fast-server-udu0.onrender.com"
 
 export default function ImagePredictor() {
   const [file, setFile] = useState<File>();
@@ -25,7 +30,7 @@ export default function ImagePredictor() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/predict', {
+      const response = await fetch(`${publish_server}/predict`, {
         method: 'POST',
         body: formData,
       });
