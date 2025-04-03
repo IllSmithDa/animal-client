@@ -2,8 +2,7 @@
 import React, { useState } from 'react'
 
 
-const local_server = "http://127.0.0.1:8000";
-const publish_server = "https://fast-server-udu0.onrender.com"
+ const select_server =  window.location.href === 'http://localhost:5173/animal-client' ? "http://127.0.0.1:8000" : "https://fast-server-udu0.onrender.com";
 
 export default function ImagePredictor() {
   const [file, setFile] = useState<File>();
@@ -30,7 +29,7 @@ export default function ImagePredictor() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${publish_server}/predict`, {
+      const response = await fetch(`${select_server}/predict`, {
         method: 'POST',
         body: formData,
       });
@@ -47,7 +46,8 @@ export default function ImagePredictor() {
 
   return (
     <div style={{ padding: '1rem', margin: 'auto' }}>
-      <h2>Can you you tell what animal this is?</h2>
+      <h2>Can this AI model tell what animal this is?</h2>
+      <h3>Select a image file to find out!</h3>
       <input type="file" accept="image/*" onChange={handleFileChange} />
       <br /> <br />
       <button onClick={handleSubmit} disabled={!file || loading}>
