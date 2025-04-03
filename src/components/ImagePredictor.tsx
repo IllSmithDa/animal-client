@@ -46,7 +46,7 @@ export default function ImagePredictor() {
 
   return (
     <div style={{ padding: '1rem', margin: 'auto' }}>
-      <h2>Can this AI model tell what animal this is?</h2>
+      <h2>Can this AI model tell what animal is in a image?</h2>
       <h3>Select a image file to find out!</h3>
       <input type="file" accept="image/*" onChange={handleFileChange} />
       <br /> <br />
