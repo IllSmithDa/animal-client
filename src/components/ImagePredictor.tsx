@@ -2,13 +2,14 @@
 import React, { useState } from 'react'
 
 
- const select_server =  window.location.href === 'http://localhost:5173/animal-client' ? "http://127.0.0.1:8000" : "https://fast-server-udu0.onrender.com";
 
 export default function ImagePredictor() {
   const [file, setFile] = useState<File>();
   const [prediction, setPrediction] = useState('');
   const [loading, setLoading] = useState(false);
   const [previewURL, setPreviewURL] = useState('');
+  const select_server =  window.location.href === 'http://localhost:5173/animal-client' ? "http://127.0.0.1:8000" : "https://fast-server-udu0.onrender.com";
+
 
   const handleFileChange = (e: React.FormEvent) => {
     const target= e.target as HTMLInputElement;
@@ -33,7 +34,6 @@ export default function ImagePredictor() {
         method: 'POST',
         body: formData,
       });
-
       const data = await response.json();
       setPrediction(data.prediction);
     } catch (error) {
