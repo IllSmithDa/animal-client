@@ -63,7 +63,7 @@ export default function ImagePredictor() {
           cursor: !file || loading ? 'not-allowed' : 'pointer',
         }}
       >
-        {loading ? '🔍 Predicting...' : '🎯 Identify Animal'}
+        {loading ? '🔍 Predicting...' : 'Identify Animal ➤' }
       </button>
 
       {previewURL && (
