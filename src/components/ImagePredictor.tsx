@@ -44,8 +44,8 @@ export default function ImagePredictor() {
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.header}>🐾 Animal Classifier AI 🐾</h2>
-      <p style={styles.subHeader}>Upload an image and let the AI guess the animal!</p>
+      <h2 style={styles.header}>🐾 Dog Breed AI 🐾</h2>
+      <p style={styles.subHeader}>Upload an image and let the AI guess the dog breed!</p>
 
       <input
         type="file"
