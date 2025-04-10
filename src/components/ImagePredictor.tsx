@@ -6,6 +6,14 @@ export default function ImagePredictor() {
   const [prediction, setPrediction] = useState('');
   const [loading, setLoading] = useState(false);
   const [previewURL, setPreviewURL] = useState('');
+
+  function capitalizeWords(str:string) {
+    return str.split(' ')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ');
+  }
+
+
   const select_server = window.location.href === 'http://localhost:5173/animal-client'
     ? 'http://127.0.0.1:8000'
     : 'https://fast-server-udu0.onrender.com';
@@ -28,12 +36,13 @@ export default function ImagePredictor() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${select_server}/predict`, {
+      const response = await fetch(`${select_server}/torchvision_routes/predict`, {
         method: 'POST',
         body: formData,
       });
       const data = await response.json();
-      setPrediction(data.prediction);
+      const value = capitalizeWords(data.prediction);
+      setPrediction(value);
     } catch (error) {
       console.error('Error:', error);
       setPrediction('Error making prediction');
@@ -63,7 +72,7 @@ export default function ImagePredictor() {
           cursor: !file || loading ? 'not-allowed' : 'pointer',
         }}
       >
-        {loading ? '➤ Predicting...' : '🔍 Identify Animal' }
+        {loading ? '➤ Predicting...' : '🔍 Identify Dog' }
       </button>
 
       {previewURL && (
