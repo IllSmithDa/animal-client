@@ -202,7 +202,7 @@ const styles: any = {
     margin: '1rem auto',
     transition: 'transform 0.2s',
   },
-  
+
   'media (max-width: 600px)': {
     container: {
       maxWidth: '90%',
