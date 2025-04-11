@@ -4,6 +4,9 @@
   align-items: center;
   min-height: 200px;
   background-color: #fff3cd; /* Light yellow background */
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .loader {
   width: 80px;
