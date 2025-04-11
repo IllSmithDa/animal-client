@@ -200,5 +200,30 @@ const styles: Record<string, React.CSSProperties> = {
     maxWidth: '90%',
     margin: '1rem auto',
     transition: 'transform 0.2s',
-  }
+  }, 
+  'media (max-width: 600px)': {
+    container: {
+      maxWidth: '90%',
+      padding: '1rem',
+    },
+    header: {
+      fontSize: '1.5rem',
+    },
+    subHeader: {
+      fontSize: '0.9rem',
+    },
+    button: {
+      padding: '0.4rem 1rem',
+      fontSize: '0.9rem',
+    },
+    image: {
+      maxHeight: '200px',
+    },
+    predictionBox: {
+      fontSize: '1rem',
+    },
+    factBox: {
+      fontSize: '1rem',
+    },
+  }  
 };
