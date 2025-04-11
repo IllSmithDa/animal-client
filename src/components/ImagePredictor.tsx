@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import Loader from './Loader/Loader';
@@ -126,7 +127,7 @@ export default function ImagePredictor() {
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles: any = {
   container: {
     maxWidth: '480px',
     margin: '2rem auto',
@@ -200,7 +201,8 @@ const styles: Record<string, React.CSSProperties> = {
     maxWidth: '90%',
     margin: '1rem auto',
     transition: 'transform 0.2s',
-  }, 
+  },
+  
   'media (max-width: 600px)': {
     container: {
       maxWidth: '90%',
