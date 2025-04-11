@@ -152,7 +152,8 @@ const styles: Record<string, React.CSSProperties> = {
     padding: '0.4rem',
     border: '1px solid #ccc',
     borderRadius: '6px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    color: '#000'
   },
   button: {
     backgroundColor: '#0066ff',
