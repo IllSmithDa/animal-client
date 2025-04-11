@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
-import Loader from './Loader/Loader';
+import Loader from '../Loader/Loader';
+import './ImagePredictor.css';
 
 export default function ImagePredictor() {
   const [file, setFile] = useState<File>();
@@ -77,22 +77,22 @@ export default function ImagePredictor() {
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.header}>🐾 Dog Breed AI 🐾</h2>
-      <p style={styles.subHeader}>Upload an image and let the AI guess the dog breed!</p>
+    <div className='container'>
+      <h2 className='header'>🐾 Dog Breed AI 🐾</h2>
+      <p className='subHeader'>Upload an image and let the AI guess the dog breed!</p>
 
       <input
         type="file"
         accept="image/*"
         onChange={handleFileChange}
-        style={styles.fileInput}
+        className='fileInput'
       />
 
       <button
         onClick={handleSubmit}
         disabled={!file || loading}
+        className='button'
         style={{
-          ...styles.button,
           opacity: !file || loading ? 0.6 : 1,
           cursor: !file || loading ? 'not-allowed' : 'pointer',
         }}
@@ -101,22 +101,22 @@ export default function ImagePredictor() {
       </button>
 
       {previewURL && (
-        <div style={styles.imageContainer}>
+        <div className='imageContainer'>
           <img
             src={previewURL}
             alt="Uploaded Preview"
-            style={styles.image}
+            className='image'
           />
         </div>
       )}
 
       {prediction && (
-        <div style={styles.predictionBox}>
+        <div className='predictionBox'>
           <strong>Prediction:</strong> {prediction}
         </div>
       )}
       {dogFacts && (
-        <div style={styles.factBox}>
+        <div className='factBox'>
           <strong></strong> {dogFacts}
         </div>
       )}
@@ -126,106 +126,3 @@ export default function ImagePredictor() {
     </div>
   );
 }
-
-const styles: any = {
-  container: {
-    maxWidth: '480px',
-    margin: '2rem auto',
-    padding: '2rem',
-    textAlign: 'center',
-    background: 'linear-gradient(135deg, #f0f8ff, #e6f7ff)',
-    borderRadius: '12px',
-    boxShadow: '0 0 12px rgba(0,0,0,0.1)',
-  },
-  header: {
-    fontSize: '1.8rem',
-    marginBottom: '0.5rem',
-    color: '#333',
-    margin: 'auto',
-  },
-  subHeader: {
-    fontSize: '1rem',
-    color: '#555',
-    marginBottom: '1.5rem',
-  },
-  fileInput: {
-    margin: '1rem 0',
-    padding: '0.4rem',
-    border: '1px solid #ccc',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    color: '#000'
-  },
-  button: {
-    backgroundColor: '#0066ff',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '6px',
-    padding: '0.6rem 1.4rem',
-    fontSize: '1rem',
-    marginTop: '1rem',
-    transition: 'background-color 0.2s',
-  },
-  imageContainer: {
-    marginTop: '1.5rem',
-  },
-  image: {
-    width: '100%',
-    maxHeight: '300px',
-    objectFit: 'contain',
-    borderRadius: '10px',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-  },
-  predictionBox: {
-    marginTop: '1.5rem',
-    backgroundColor: '#f4faff',
-    border: '1px solid #b3daff',
-    padding: '1rem',
-    borderRadius: '8px',
-    fontSize: '1.1rem',
-    color: '#004085',
-  },
-  factBox: {
-    marginTop: '1.5rem',
-    backgroundColor: '#fff3cd',
-    border: '1px solid #ffeeba',
-    padding: '1rem',
-    borderRadius: '8px',
-    fontSize: '1.1rem',
-    color: '#856404',
-    textAlign: 'left',
-    lineHeight: '1.5',
-    fontFamily: 'Arial, sans-serif',
-    fontWeight: '400',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-    maxWidth: '90%',
-    margin: '1rem auto',
-    transition: 'transform 0.2s',
-  },
-
-  'media (max-width: 600px)': {
-    container: {
-      maxWidth: '90%',
-      padding: '1rem',
-    },
-    header: {
-      fontSize: '1.5rem',
-    },
-    subHeader: {
-      fontSize: '0.9rem',
-    },
-    button: {
-      padding: '0.4rem 1rem',
-      fontSize: '0.9rem',
-    },
-    image: {
-      maxHeight: '200px',
-    },
-    predictionBox: {
-      fontSize: '1rem',
-    },
-    factBox: {
-      fontSize: '1rem',
-    },
-  }  
-};

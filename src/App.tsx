@@ -1,5 +1,5 @@
 import './App.css'
-import ImagePredictor from './components/ImagePredictor'
+import ImagePredictor from './components/ImagePredictor/ImagePredictor'
 
 function App() {
   return (
