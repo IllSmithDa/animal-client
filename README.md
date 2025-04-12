@@ -17,3 +17,9 @@
     3. The server api url can be found here:
 
       - https://jsongpt.com/api/dogs
+
+# Notes
+
+  1. Styled the input using ::file-selecton-button
+
+    - https://css-tricks.com/almanac/pseudo-selectors/f/file-selector-button/
