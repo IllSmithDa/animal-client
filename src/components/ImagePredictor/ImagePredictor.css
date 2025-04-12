@@ -114,7 +114,6 @@
 @media screen and (max-width: 600px) {
   .container {
     padding: 0.5rem;
-    margin: 10px auto;
   }
   .header {
     font-size: 1.5rem;
@@ -145,7 +144,7 @@
   
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
   .inputSection {
     flex-direction: column;
     align-items: center;
@@ -170,9 +169,6 @@
   .factBox {
     font-size: 0.9rem;
     padding: 0.6rem;
-  }
-  .image {
-    max-height: 150px;
   }
   .predictionBox {
     font-size: 1rem;
