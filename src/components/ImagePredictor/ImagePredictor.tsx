@@ -82,26 +82,38 @@ export default function ImagePredictor() {
     <div className='container'>
       <h2 className='header'>🐾 Dog Breed AI 🐾</h2>
       <p className='subHeader'>Upload an image and let the AI guess the dog breed!</p>
-
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        className='fileInput'
-      />
-
-      <button
-        onClick={handleSubmit}
-        disabled={!file || loading}
-        className='button'
-        style={{
-          opacity: !file || loading ? 0.6 : 1,
-          cursor: !file || loading ? 'not-allowed' : 'pointer',
-        }}
+      <section
+        className='inputSection'
       >
-        {loading ? '➤ Predicting...' : '🔍 Identify Dog' }
-      </button>
-
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className='fileInput'
+        />
+        <button
+          onClick={handleSubmit}
+          disabled={!file || loading}
+          className='desktopButton'
+          style={{
+            opacity: !file || loading ? 0.6 : 1,
+            cursor: !file || loading ? 'not-allowed' : 'pointer',
+          }}
+        >
+          {loading ? '➤ Predicting...' : '🔍 Identify Dog' }
+        </button>
+        <button
+          onClick={handleSubmit}
+          disabled={!file || loading}
+          className='mobileButton'
+          style={{
+            opacity: !file || loading ? 0.6 : 1,
+            cursor: !file || loading ? 'not-allowed' : 'pointer',
+          }}
+        >
+          {loading ? '...' : '🔍' }
+        </button>
+      </section>
       {previewURL && (
         <div className='imageContainer'>
           <img
