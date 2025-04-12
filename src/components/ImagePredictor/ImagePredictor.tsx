@@ -24,6 +24,7 @@ export default function ImagePredictor() {
     : 'https://fast-server-udu0.onrender.com';
 
   // not using huggerface version to save costs
+  /*
   const getDogFacts = async (dog_breed:string) => {
     try {
       setSpinner(true);
@@ -40,7 +41,8 @@ export default function ImagePredictor() {
       setSpinner(false);
     }
   }
-
+  */
+  // using jsongpt version to save costs
   const getFreeDogFacts = async (dog_breed: string) => {
     try {
       setSpinner(true);

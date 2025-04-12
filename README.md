@@ -13,3 +13,7 @@
     1. This application uses basic use state hooks and simple css page to render the application
 
     2. No special setup is required to get the application up and running. 
+
+    3. The server api url can be found here:
+
+      - https://jsongpt.com/api/dogs
