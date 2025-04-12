@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Loader from '../Loader/Loader';
 import './ImagePredictor.css';
 
@@ -10,7 +10,6 @@ export default function ImagePredictor() {
   const [previewURL, setPreviewURL] = useState('');
   const [dogFacts, setDogFacts] = useState('');
   const [spinner, setSpinner] = useState(false);
-
 
   function capitalizeWords(str:string) {
     return str.split(' ')
@@ -40,6 +39,8 @@ export default function ImagePredictor() {
       setPrediction('Error getting dog facts');
     } finally {
       setSpinner(false);
+      setLoading(false); // Enable button again
+      setFile(undefined); // Disable button again
     }  
   }
 
@@ -73,8 +74,6 @@ export default function ImagePredictor() {
     } catch (error) {
       console.error('Error:', error);
       setPrediction('Error making prediction');
-    } finally {
-      setLoading(false);
     }
   };
 
