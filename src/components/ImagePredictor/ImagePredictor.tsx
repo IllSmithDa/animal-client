@@ -23,6 +23,7 @@ export default function ImagePredictor() {
     ? 'http://127.0.0.1:8000'
     : 'https://fast-server-udu0.onrender.com';
 
+  // not using huggerface version to save costs
   const getDogFacts = async (dog_breed:string) => {
     try {
       setSpinner(true);
@@ -40,6 +41,28 @@ export default function ImagePredictor() {
     }
   }
 
+  const getFreeDogFacts = async (dog_breed: string) => {
+    try {
+      setSpinner(true);
+
+      //https://jsongpt.com/api/dogs
+      const promptUrl = `https://api.jsongpt.com/json?prompt=Simply give me a short 3 to 4 sentence paragraph about the dog breed ${dog_breed} without any introductions or conclusions. &facts=array of dog facts`
+
+      const response = await fetch(promptUrl, {
+        method: 'GET',
+      });
+      const data = await response.json();
+      const dog_facts = data.facts.reduce((acc: string, fact: string) => {
+        return acc + ' ' + fact + ' ';
+      })
+      setDogFacts(dog_facts);
+    } catch (error) {
+      console.error('Error:', error);
+      setPrediction('Error getting dog facts');
+    } finally {
+      setSpinner(false);
+    }  
+  }
 
   const handleFileChange = (e: React.FormEvent) => {
     const target = e.target as HTMLInputElement;
@@ -67,7 +90,7 @@ export default function ImagePredictor() {
       const data = await response.json();
       const value = capitalizeWords(data.prediction);
       setPrediction(value);
-      getDogFacts(value)
+      getFreeDogFacts(value)
     } catch (error) {
       console.error('Error:', error);
       setPrediction('Error making prediction');
