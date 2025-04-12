@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Loader from '../Loader/Loader';
 import './ImagePredictor.css';
 
