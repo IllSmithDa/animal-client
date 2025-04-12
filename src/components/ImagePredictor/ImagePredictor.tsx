@@ -27,7 +27,11 @@ export default function ImagePredictor() {
   const getFreeDogFacts = async (dog_breed: string) => {
     try {
       setSpinner(true);
-      const fetchUrl = `${select_server}/hive_ai_routes/get_dog_facts/${dog_breed}`
+      // hugging face route removed to save costs
+      // const fetchUrl = `${select_server}/huggingface_routes/get_dog_facts/${dog_breed}`;
+
+      // use hive api instead
+      const fetchUrl = `${select_server}/hive_ai_routes/get_dog_facts/${dog_breed};`
       const response = await fetch(fetchUrl, {
         method: 'GET',
       });
@@ -36,7 +40,7 @@ export default function ImagePredictor() {
 
     } catch (error) {
       console.error('Error:', error);
-      setPrediction('Error getting dog facts');
+      setDogFacts('Error getting dog facts');
     } finally {
       setSpinner(false);
       setLoading(false); // Enable button again
@@ -140,27 +144,7 @@ export default function ImagePredictor() {
   );
 }
 
-
-  // not using huggerface version to save costs
-  /*
-  const getDogFacts = async (dog_breed:string) => {
-    try {
-      setSpinner(true);
-
-      const response = await fetch(`${select_server}/huggingface_routes/get_dog_facts/${dog_breed}`, {
-        method: 'GET',
-      });
-      const data = await response.json();
-      setDogFacts(data.dog_facts);
-    } catch (error) {
-      console.error('Error:', error);
-      setPrediction('Error getting dog facts');
-    } finally {
-      setSpinner(false);
-    }
-  }
-  */
-
+// saving in case I no longer using hive api
   /*
   const getFreeDogFacts = async (dog_breed: string) => {
     try {
