@@ -145,7 +145,7 @@
   
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 350px) {
   .inputSection {
     flex-direction: column;
     align-items: center;
